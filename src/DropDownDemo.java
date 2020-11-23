@@ -16,9 +16,16 @@ public class DropDownDemo {
         driver.manage().window().maximize();
         driver.get("https://www.lifepartner.in/");
 
+        // 1 . find the webelement
         WebElement drpMStatus = driver.findElement(By.name("ms"));
 
+
+        //2 .create an object of select class , pass the webelemnt into its constructor
         Select selMStatus = new Select(drpMStatus) ;
+
+
+        // 3. select , using either , visible text, index, value
+
        // selMStatus.selectByVisibleText("Never married");
         selMStatus.selectByValue("7");
 
