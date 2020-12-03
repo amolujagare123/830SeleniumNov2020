@@ -29,10 +29,10 @@ public class Login {
 
         WebElement btnLogin = driver.findElement(By.xpath("//input[@type='submit']"));
         btnLogin.click();
-
+/*
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.findElement(By.xpath("//a[text()='Add Customer']")).click();
+        driver.findElement(By.xpath("//a[text()='Add Customer']")).click();*/
 
 
 
