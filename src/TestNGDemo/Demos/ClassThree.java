@@ -1,5 +1,6 @@
 package TestNGDemo.Demos;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class ClassThree {
@@ -10,15 +11,21 @@ public class ClassThree {
         System.out.println("classThreeTest1");
     }
 
-    @Test //(enabled = false)
+    @Test (groups = "email") //(enabled = false)
     public void classThreeTest2()
     {
         System.out.println("classThreeTest2");
     }
 
+    @Parameters({"url","user","pass"})
     @Test
-    public void classThreeTest3()
+    public void classThreeTest3(String s1, String s2,String s3)
     {
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
+
+
         System.out.println("classThreeTest3");
     }
 
