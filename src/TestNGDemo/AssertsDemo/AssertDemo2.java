@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class AssertDemo1 {
+public class AssertDemo2 {
 
     @Test
     public void myLoginTest1() throws InterruptedException {
@@ -33,13 +33,13 @@ public class AssertDemo1 {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        String expectd = "http://stock.scriptinglogic.net/dashboard.php";
+        String expectd = "POSNIC - Dashboard";
 
-        String actual = driver.getCurrentUrl();
+        String actual = driver.getTitle();
 
         System.out.println("actual="+actual);
 
-        Assert.assertEquals(actual,expectd,"the actual URL is different");
+        Assert.assertEquals(actual,expectd,"the actual Page title is different");
 
 
     }

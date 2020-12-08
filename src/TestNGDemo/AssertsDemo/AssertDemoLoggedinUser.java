@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class AssertDemo1 {
+public class AssertDemoLoggedinUser {
 
     @Test
     public void myLoginTest1() throws InterruptedException {
@@ -22,7 +22,7 @@ public class AssertDemo1 {
 
 
         WebElement txtUserName = driver.findElement(By.xpath("//input[@name='username']"));
-        txtUserName.sendKeys("admin");
+        txtUserName.sendKeys("admin1");
 
 
         WebElement txtPassword = driver.findElement(By.xpath("//input[@id='login-password']"));
@@ -33,13 +33,32 @@ public class AssertDemo1 {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        String expectd = "http://stock.scriptinglogic.net/dashboard.php";
+        String expectd = "Logged in as";
 
-        String actual = driver.getCurrentUrl();
+        String actual = "";
+
+        try {
+
+             actual = driver.findElement(By.xpath("//a[contains(@class,'user')]")).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+
 
         System.out.println("actual="+actual);
 
-        Assert.assertEquals(actual,expectd,"the actual URL is different");
+           boolean result = actual.contains(expectd);
+
+           Assert.assertTrue(result,"the text is absent or incorrect");
+
+
+        // check whether the actual result string contains the expected result string
+
+
+      /*  Assert.assertEquals(actual,expectd,
+                "the dashboard link is not present on the web page");*/
 
 
     }
