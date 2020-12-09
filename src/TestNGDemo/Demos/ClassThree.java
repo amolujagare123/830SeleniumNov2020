@@ -1,5 +1,6 @@
 package TestNGDemo.Demos;
 
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -9,6 +10,9 @@ public class ClassThree {
     public void classThreeTest1()
     {
         System.out.println("classThreeTest1");
+        Assert.assertTrue(false,"classThreeTest1 is failed");
+
+
     }
 
     @Test (groups = "email") //(enabled = false)

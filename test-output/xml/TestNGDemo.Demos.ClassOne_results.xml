@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="module 1"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.010">
+  <properties />
+  
+  
+            <testcase name="classOneTest3" time="0.002" classname="TestNGDemo.Demos.ClassOne" />
+                <testcase name="classOneTest2" time="0.005" classname="TestNGDemo.Demos.ClassOne" />
+                <testcase name="classOneTest1" time="0.003" classname="TestNGDemo.Demos.ClassOne" />
+      
+</testsuite>

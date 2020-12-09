@@ -20,7 +20,6 @@ public class AddCustomer {
         driver.manage().window().maximize();
         driver.get("http://stock.scriptinglogic.net");
 
-
         WebElement txtUserName = driver.findElement(By.xpath("//input[@name='username']"));
         txtUserName.sendKeys("admin");
 
