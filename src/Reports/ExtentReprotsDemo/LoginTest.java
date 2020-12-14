@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static Reports.ExtentReprotsDemo.util.ScreenShot.takeScreenshot;
+import static Reports.ExtentReprotsDemo.util.InitExtentReport.takeScreenshot;
 
 public class LoginTest {
 

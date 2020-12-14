@@ -1,5 +1,6 @@
-package TestNGDemo.AssertsDemo;
+package Reports.ExtentReprotsDemo;
 
+import Reports.ExtentReprotsDemo.util.InitBrowser;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,14 +11,14 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class AssertDemo2 {
+//import org.junit.Assert.*;
+
+public class AssertDemo1 extends InitBrowser {
 
     @Test
-    public void myLoginTest2() throws InterruptedException {
+    public void myLoginTest1() throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+
         driver.get("http://stock.scriptinglogic.net");
 
 
@@ -33,13 +34,15 @@ public class AssertDemo2 {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        String expectd = "POSNIC - Dashboard1";
+        String expectd = "http://stock.scriptinglogic.net/dashboard.php";
 
-        String actual = driver.getTitle();
+        String actual = driver.getCurrentUrl();
 
         System.out.println("actual="+actual);
 
-        Assert.assertEquals(actual,expectd,"the actual Page title is different");
+       Assert.assertEquals(actual,expectd,"the actual URL is different");
+
+
 
 
     }
