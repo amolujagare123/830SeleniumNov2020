@@ -1,19 +1,24 @@
 package DataProviderDemo;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class DataProviderDemo {
+public class DataProviderExcel {
 
   /*  public static WebDriver driver;
     @BeforeMethod
@@ -59,23 +64,29 @@ public class DataProviderDemo {
 
 
     @DataProvider
-    public Object[][] getData()
-    {
+    public Object[][] getData() throws IOException {
 
-        Object[][] data = new Object[4][2]; // (col) 2 inputs as username & password
+        FileInputStream fp = new FileInputStream("Data\\data.xls");
+
+        HSSFWorkbook workbook = new HSSFWorkbook(fp);
+        HSSFSheet sheet = workbook.getSheet("Sheet1");
+
+        int rowCount = sheet.getPhysicalNumberOfRows();
+
+        Object[][] data = new Object[rowCount][2]; // (col) 2 inputs as username & password
                                             // (row) 4 number of input set (data set)
-        data[0][0] = "admin";
-        data[0][1] = "admin"; // 1st row
 
+        for(int i=0;i<rowCount;i++)
+        {
+            HSSFRow row = sheet.getRow(i);
 
-        data[1][0] = "wewe";
-        data[1][1] = "554@#"; // 2nd row
+            HSSFCell user = row.getCell(0);
+            data[i][0] =  user.toString().trim();
 
-        data[2][0] = "";
-        data[2][1] = ""; // 2nd row
+            HSSFCell pass = row.getCell(1);
+            data[i][1] = pass.toString().trim();
 
-        data[3][0] = "1234";
-        data[3][1] = "1111"; // 2nd row
+        }
 
         return data;
 
