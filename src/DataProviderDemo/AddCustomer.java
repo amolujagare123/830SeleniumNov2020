@@ -69,7 +69,7 @@ public class AddCustomer {
 
         WebElement addButton = driver.findElement(By.xpath("//input[@value='Add']"));
 
-        addButton.click();
+       addButton.click();
 
         /*String expected = "Customer Details Added";
         String actual = "";
